@@ -1,0 +1,35 @@
+<div
+  class="flex items-center justify-between rounded-full border border-slate-200 px-5 text-sm"
+  [ngClass]="containerClass"
+>
+  <button
+    type="button"
+    class="inline-flex items-center justify-center border-slate-200 text-slate-500"
+    [ngClass]="buttonClass"
+    [attr.aria-label]="quantity === 1 ? 'Eliminar' : 'Disminuir'"
+    (click)="quantity === 1 ? remove.emit() : decrement.emit()"
+  >
+    @if (quantity === 1) {
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
+        <path d="M3 6h18"></path>
+        <path d="M8 6V4h8v2"></path>
+        <path d="M6 6l1 14h10l1-14"></path>
+      </svg>
+    }
+    @if (quantity > 1) {
+      <span class="text-lg">-</span>
+    }
+  </button>
+
+  <span class="min-w-[28px] text-center text-base font-semibold text-slate-700">{{ quantity }}</span>
+
+  <button
+    type="button"
+    class="inline-flex items-center justify-center border-slate-200 text-slate-500"
+    [ngClass]="buttonClass"
+    aria-label="Incrementar"
+    (click)="increment.emit()"
+  >
+    <span class="text-lg">+</span>
+  </button>
+</div>

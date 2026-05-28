@@ -1,0 +1,149 @@
+{
+  "products": [
+    {
+      "id": "prd_001",
+      "slug": "jabon-dove-cremoso-original",
+      "images": [
+        {
+          "url": "/assets/img/424773L.jpg",
+          "alt": "Jabón Dove Cremoso Original front view"
+        },
+        {
+          "url": "/assets/img/424773X.jpg",
+          "alt": "Jabón Dove Cremoso Original"
+        }
+      ],
+      "name": "Jabón Dove Cremoso Original",
+      "unitLabel": "Sobre 1 unidad",
+      "price": 129.99,
+      "priceRegular": 155.99,
+      "pricePromo": 129.99,
+      "priceCard": 103.99,
+      "variants": [
+        {
+          "id": "var_001",
+          "sku": "AUR-HEAD-BLK",
+          "color": "Black",
+          "size": "Standard",
+          "stock": 24
+        },
+        {
+          "id": "var_002",
+          "sku": "AUR-HEAD-WHT",
+          "color": "White",
+          "size": "Standard",
+          "stock": 12
+        }
+      ],
+      "description": "Jabon Dove Cremoso Original es un jabón suave que limpia profundamente y nutre la piel, dejándola suave y humectada.",
+      "relatedProducts": ["panadol-500mg-tableta-efervescente", "premium-whey-protein-polvo-sabor-chocolate"]
+    },
+    {
+      "id": "prd_002",
+      "slug": "panadol-500mg-tableta-efervescente",
+      "images": [
+        {
+          "url": "/assets/img/108234X.jpg",
+          "alt": "Panadol 500mg Tableta Efervescente"
+        },
+        {
+          "url": "/assets/img/108234L.jpg",
+          "alt": "Panadol 500mg Tableta Efervescente"
+        }
+      ],
+      "name": "Panadol 500mg Tableta Efervescente",
+      "unitLabel": "Sobre 1 unidad",
+      "price": 199.0,
+      "priceRegular": 239.0,
+      "pricePromo": 199.0,
+      "priceCard": 159.0,
+      "variants": [
+        {
+          "id": "var_003",
+          "sku": "PAN-500-20",
+          "color": "White",
+          "size": "20 tablets",
+          "stock": 18
+        },
+        {
+          "id": "var_004",
+          "sku": "PAN-500-10",
+          "color": "White",
+          "size": "10 tablets",
+          "stock": 9
+        }
+      ],
+      "description": "Panadol 500mg Tableta Efervescente is effective for relieving pain and reducing fever.",
+      "relatedProducts": ["jabon-dove-cremoso-original", "panadol-antigripal-nf-tableta"]
+    },
+    {
+      "id": "prd_003",
+      "slug": "premium-whey-protein-polvo-sabor-chocolate",
+      "images": [
+        {
+          "url": "/assets/img/029496X.jpg",
+          "alt": "Premium Whey Protein Polvo Sabor Chocolate"
+        },
+        {
+          "url": "/assets/img/029496L.jpg",
+          "alt": "Premium Whey Protein Polvo Sabor Chocolate"
+        }
+      ],
+      "name": "Premium Whey Protein Polvo Sabor Chocolate",
+      "unitLabel": "Sobre 1 unidad",
+      "price": 379.90,
+      "priceRegular": 455.88,
+      "pricePromo": 379.90,
+      "priceCard": 303.92,
+      "variants": [
+        {
+          "id": "var_005",
+          "sku": "PRW-CHO-500",
+          "color": "Chocolate",
+          "size": "500g",
+          "stock": 30
+        }
+      ],
+      "description": "Premium Whey Protein Polvo Sabor Chocolate is a high-quality protein supplement for muscle recovery and growth.",
+      "relatedProducts": ["panadol-500mg-tableta-efervescente"]
+    },
+    {
+      "id": "prd_004",
+      "slug": "panadol-antigripal-nf-tableta",
+      "images": [
+        {
+          "url": "/assets/img/025891L.jpg",
+          "alt": "Panadol Antigripal NF Tableta box"
+        },
+        {
+          "url": "/assets/img/108234X.jpg",
+          "alt": "Panadol Antigripal NF Tableta interior"
+        }
+      ],
+      "name": "Panadol Antigripal NF Tableta",
+      "unitLabel": "Sobre 1 unidad",
+      "price": 149.0,
+      "priceRegular": 179.0,
+      "pricePromo": 149.0,
+      "priceCard": 119.0,
+      "variants": [
+        {
+          "id": "var_006",
+          "sku": "PAN-ANT-NF-20",
+          "color": "White",
+          "size": "20 tablets",
+          "stock": 15
+        },
+        {
+          "id": "var_007",
+          "sku": "PAN-ANT-NF-10",
+          "color": "White",
+          "size": "10 tablets",
+          "stock": 10
+        }
+      ],
+      "description": "Panadol Antigripal NF Tableta is effective for relieving cold and flu symptoms.",
+      "relatedProducts": ["jabon-dove-cremoso-original"]
+    }
+  ]
+}

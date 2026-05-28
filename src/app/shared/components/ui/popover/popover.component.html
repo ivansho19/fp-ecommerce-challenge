@@ -1,0 +1,6 @@
+<div class="popover-root">
+  <ng-content select="[popover-trigger]"></ng-content>
+  @if (isOpen()) {
+    <ng-content select="[popover-panel]"></ng-content>
+  }
+</div>

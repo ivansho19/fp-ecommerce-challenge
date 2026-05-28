@@ -1,0 +1,36 @@
+<section class="space-y-6">
+  <header class="space-y-1">
+    <p class="text-sm text-gray-600">Productos destacados para ti.</p>
+  </header>
+
+  @if (state().status === 'loading') {
+    <div
+      class="grid justify-items-center gap-6 sm:grid-cols-2 sm:justify-items-start lg:grid-cols-3 xl:grid-cols-4"
+    >
+      <app-skeleton variant="card" [count]="8" />
+    </div>
+  } @else {
+    <div
+      class="grid justify-items-center gap-4 sm:grid-cols-2 sm:justify-items-start lg:grid-cols-3 xl:grid-cols-4"
+    >
+      @for (item of cards(); track item.id) {
+        <app-product-card
+          [name]="item.name"
+          [subtitle]="item.subtitle"
+          [imageUrl]="item.imageUrl"
+          [imageAlt]="item.imageAlt"
+          [href]="item.href"
+          [badge]="item.badge"
+          [badgeTitle]="item.badgeTitle"
+          [badgeSubtitle]="item.badgeSubtitle"
+          [price1]="item.price1"
+          [price2]="item.price2"
+          [price3]="item.price3"
+          [discount]="item.discount"
+          [promo]="item.promo"
+          [cartItem]="item.cartItem"
+        />
+      }
+    </div>
+  }
+</section>

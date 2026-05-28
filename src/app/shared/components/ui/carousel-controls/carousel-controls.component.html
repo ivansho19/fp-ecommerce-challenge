@@ -1,0 +1,18 @@
+<div [ngClass]="containerClass">
+  <button
+    type="button"
+    [ngClass]="prevButtonClass"
+    [attr.aria-label]="prevAriaLabel"
+    (click)="prev.emit()"
+  >
+    {{ prevLabel }}
+  </button>
+  <button
+    type="button"
+    [ngClass]="nextButtonClass"
+    [attr.aria-label]="nextAriaLabel"
+    (click)="next.emit()"
+  >
+    {{ nextLabel }}
+  </button>
+</div>

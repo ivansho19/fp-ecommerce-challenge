@@ -1,0 +1,188 @@
+<section class="space-y-8">
+  <div class="text-sm text-slate-500">
+    <span class="text-brand-primary">Inicio</span> / Farmacia / Gripe
+  </div>
+
+  @if (product(); as item) {
+    <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="space-y-4">
+        <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <div class="grid gap-6 lg:grid-cols-[80px_1fr]">
+            <div class="flex lg:flex-col gap-3">
+              @for (image of item.images; track $index; let i = $index) {
+                <button
+                  type="button"
+                  class="h-16 w-16 rounded-xl border bg-white p-1 transition"
+                  [class.border-brand-primary]="i === activeImageIndex()"
+                  (click)="setActiveImage(i)"
+                >
+                  <img
+                    class="h-full w-full rounded-lg object-cover"
+                    [src]="image.url"
+                    [alt]="image.alt"
+                    loading="lazy"
+                  />
+                </button>
+              }
+            </div>
+            <div class="flex items-center justify-center">
+              <img
+                class="max-h-[420px] w-full rounded-2xl object-contain"
+                [src]="item.images[activeImageIndex()]?.url"
+                [alt]="item.images[activeImageIndex()]?.alt"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="rounded-2xl bg-white p-6 shadow-sm space-y-4">
+          <div class="space-y-1">
+            <p class="text-xs uppercase text-brand-primary">{{ item.unitLabel }}</p>
+            <h1 class="text-2xl font-semibold text-slate-900">{{ item.name }}</h1>
+          </div>
+          <div class="space-y-2 text-sm text-slate-600">
+            <div class="flex items-center justify-between">
+              <span>Precio regular</span>
+              <span class="line-through">{{ (item.price * 1.2) | currency:'USD':'symbol' }}</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>Precio promocional</span>
+              <span class="text-brand-primary font-semibold">
+                {{ item.price | currency:'USD':'symbol' }}
+              </span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>Exclusivo con tarjeta</span>
+              <span class="rounded-full bg-brand-primarySoft px-2 py-1 text-xs text-brand-primary">
+                -20%
+              </span>
+            </div>
+          </div>
+          <div class="rounded-xlp-4 text-xs">
+            <ul class="space-y-2">
+              <li class="flex gap-2">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand-primary"></span>
+                <span>
+                  Que es {{ item.name }} y para que se utiliza?
+                </span>
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand-primary"></span>
+                <span>
+                  Es un medicamento que contiene paracetamol para aliviar dolor y fiebre.
+                </span>
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-brand-primary"></span>
+                <span>
+                  Ayuda a reducir la congestion nasal y el malestar general.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm space-y-4">
+          <p class="text-sm font-semibold">Presentacion</p>
+          <div class="space-y-3">
+            @for (variant of item.variants; track variant.id) {
+              <button
+                type="button"
+                class="w-full rounded-xl border px-4 py-3 text-left text-sm transition"
+                [class.border-brand-primary]="(selectedVariantId() ?? item.variants[0]?.id) === variant.id"
+                [class.bg-brand-primarySoft]="(selectedVariantId() ?? item.variants[0]?.id) === variant.id"
+                (click)="selectVariant(variant.id)"
+              >
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="font-semibold text-slate-900">{{ variant.size }}</p>
+                    <p class="text-xs text-slate-500">SKU {{ variant.sku }}</p>
+                  </div>
+                  <span class="text-xs text-slate-500">Stock {{ variant.stock }}</span>
+                </div>
+              </button>
+            }
+          </div>
+
+          <div class="flex items-center gap-3">
+            @if (quantityFor(item) > 0) {
+              <app-cart-quantity-control
+                [quantity]="quantityFor(item)"
+                [containerClass]="'h-12 w-full'"
+                [buttonClass]="'h-12 w-36'"
+                (increment)="increment(item)"
+                (decrement)="decrement(item)"
+                (remove)="remove(item)"
+              />
+            } @else {
+              <button
+                type="button"
+                class="flex-1 rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white"
+                (click)="addToCart(item)"
+              >
+                Agregar al carrito
+              </button>
+            }
+            <app-heart-button sizeClass="h-12 w-12" ariaLabel="Favorito" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-accordion [items]="buildAccordionItems(item)" />
+
+    <div class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold">Lo mas buscado</h2>
+        <app-carousel-controls
+          prevLabel="&#8249;"
+          nextLabel="&#8250;"
+          (prev)="scrollCrossSell('prev')"
+          (next)="scrollCrossSell('next')"
+        />
+      </div>
+
+      <div
+        #crossSellTrack
+        class="no-scrollbar flex gap-12 overflow-x-auto px-4 scroll-smooth snap-x snap-mandatory"
+      >
+        @for (product of relatedCards(); track product.id) {
+          <div class="min-w-[240px] max-w-[240px] snap-start">
+            <app-product-card
+              [name]="product.name"
+              [subtitle]="product.subtitle"
+              [imageUrl]="product.imageUrl"
+              [imageAlt]="product.imageAlt"
+              [href]="product.href"
+              [badge]="product.badge"
+              [badgeTitle]="product.badgeTitle"
+              [badgeSubtitle]="product.badgeSubtitle"
+              [price1]="product.price1"
+              [price2]="product.price2"
+              [price3]="product.price3"
+              [discount]="product.discount"
+              [promo]="product.promo"
+              [cartItem]="product.cartItem"
+            />
+          </div>
+        }
+      </div>
+      <div class="flex justify-center gap-2">
+        @for (page of carouselPages(); track page) {
+          <button
+            type="button"
+            class="h-2.5 w-2.5 rounded-full"
+            [class.bg-brand-primary]="page === activeCarouselIndex()"
+            [class.bg-slate-200]="page !== activeCarouselIndex()"
+            (click)="goToCarouselPage(page)"
+          ></button>
+        }
+      </div>
+    </div>
+  } @else {
+    <app-skeleton variant="pdp" />
+  }
+</section>

@@ -1,0 +1,84 @@
+{
+  "items": [
+    {
+      "id": "ms_001",
+      "slug": "jabon-dove-cremoso-original",
+      "subtitle": "BOLSA 80 UN",
+      "badge": "80 unidades",
+      "badgeTitle": "Toallitas humedas",
+      "badgeSubtitle": "Cuidado 4 en 1",
+      "discount": "-5%",
+      "promo": "-20%"
+    },
+    {
+      "id": "ms_002",
+      "slug": "panadol-500mg-tableta-efervescente",
+      "subtitle": "BOLSA 80 UN",
+      "badge": "80 unidades",
+      "badgeTitle": "Toallitas humedas",
+      "badgeSubtitle": "Cuidado 4 en 1",
+      "discount": "-5%",
+      "promo": "-20%"
+    },
+    {
+      "id": "ms_003",
+      "slug": "premium-whey-protein-polvo-sabor-chocolate",
+      "subtitle": "BOLSA 80 UN",
+      "badge": "80 unidades",
+      "badgeTitle": "Toallitas humedas",
+      "badgeSubtitle": "Cuidado 4 en 1",
+      "discount": "-5%",
+      "promo": "-20%"
+    },
+    {
+      "id": "ms_004",
+      "slug": "panadol-antigripal-nf-tableta",
+      "subtitle": "BOLSA 80 UN",
+      "badge": "80 unidades",
+      "badgeTitle": "Toallitas humedas",
+      "badgeSubtitle": "Cuidado 4 en 1",
+      "discount": "-5%",
+      "promo": "-20%"
+    },
+    {
+      "id": "ms_001",
+      "slug": "jabon-dove-cremoso-original",
+      "subtitle": "BOLSA 80 UN",
+      "badge": "80 unidades",
+      "badgeTitle": "Toallitas humedas",
+      "badgeSubtitle": "Cuidado 4 en 1",
+      "discount": "-5%",
+      "promo": "-20%"
+    },
+    {
+      "id": "ms_002",
+      "slug": "panadol-500mg-tableta-efervescente",
+      "subtitle": "BOLSA 80 UN",
+      "badge": "80 unidades",
+      "badgeTitle": "Toallitas humedas",
+      "badgeSubtitle": "Cuidado 4 en 1",
+      "discount": "-5%",
+      "promo": "-20%"
+    },
+    {
+      "id": "ms_003",
+      "slug": "premium-whey-protein-polvo-sabor-chocolate",
+      "subtitle": "BOLSA 80 UN",
+      "badge": "80 unidades",
+      "badgeTitle": "Toallitas humedas",
+      "badgeSubtitle": "Cuidado 4 en 1",
+      "discount": "-5%",
+      "promo": "-20%"
+    },
+    {
+      "id": "ms_004",
+      "slug": "panadol-antigripal-nf-tableta",
+      "subtitle": "BOLSA 80 UN",
+      "badge": "80 unidades",
+      "badgeTitle": "Toallitas humedas",
+      "badgeSubtitle": "Cuidado 4 en 1",
+      "discount": "-5%",
+      "promo": "-20%"
+    }
+  ]
+}
