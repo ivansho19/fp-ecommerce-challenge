@@ -28,7 +28,7 @@ Incluye Product Listing Page, Product Detail Page, carrito local, analytics desa
 
 ## Requisitos del proyecto
 
-- Node.js: 20.x LTS (recomendado)
+- Node.js: 20.x LTS
 - npm: 10.x (recomendado)
 - Angular CLI: 20.3.x
 - TypeScript: 5.9.x
@@ -36,7 +36,7 @@ Incluye Product Listing Page, Product Detail Page, carrito local, analytics desa
 ## Instalacion
 
 ```bash
-git clone <URL_DEL_REPO>
+git clone https://github.com/ivansho19/fp-ecommerce-challenge.git
 cd fp-ecommerce-challenge
 npm install
 ```
@@ -62,7 +62,7 @@ npm run build
 
 ## Scripts disponibles
 
-- `npm run start`: desarrollo con HMR y dev server.
+- `npm run start`: desarrollo con dev server.
 - `npm run build`: build de produccion (browser + server SSR).
 - `npm run serve:ssr:fp-ecommerce-challenge`: levanta el servidor SSR sobre el build.
 - `npm run test`: unit tests con Karma.
@@ -150,17 +150,22 @@ src/
 ## Preguntas obligatorias del challenge
 
 **Que decisiones tomaste para mejorar la performance en esta pagina?**
+
 Respuesta : He decidido usar SSR para entregar HTML inicial con mejor TTFB/LCP, rutas lazy para reducir el bundle inicial y Signals para optimizar renderizado. Adicionalmente, se aplico `loading="lazy"` en imagenes y trackBy en listados para evitar re-render innecesario.
 
 **Como estructurarias esta solucion para soportar multiples marcas con diferentes estilos?**
+
 Respuesta : Separaría la solución en una base funcional compartida y una capa de theming por marca. Utilizaría design tokens (colores, tipografías, spacing y assets) consumidos mediante Tailwind y CSS variables, permitiendo que cada marca defina su identidad visual sin afectar la lógica del negocio.
 
 **Si esta pagina presenta problemas de LCP en produccion, como lo abordarias?**
+
 Respuesta : Mediria LCP por ruta espeficica he identificaria el elemento LCP (imagen o card) tambien buscaria optimizar el tamaño y formato (AVIF/WebP) agregando el preloading selectivo y revisaria SSR/streaming. 
 
 **Como evitaria que eventos de Analytics se disparen multiples veces en una SPA?**
+
 Respuesta : Centralizando el trackeo en un servicio por clave (evento + item_id) y disparando los eventos en puntos independientes tales como (routing/resolvers o effects controlados) evitando suscripciones duplicadas.
 
 **Que consideraciones SEO tendrias en cuenta para esta pagina en un entorno real?**
+
 Respuesta : Tendría en cuenta principalmente que la página sea fácilmente indexable y rápida para el usuario implementando SSR para mejorar la carga inicial y el posicionamiento en buscadores, utilizaría HTML semántico y metadata dinamica por producto (titulo, descripción e imagen), tambien utilizaria la jerarquía correcta de encabezados, URLs amigables y una buena performance general para mantener una experiencia de usuario fluida tanto en desktop como en mobile (Responsive).
 
