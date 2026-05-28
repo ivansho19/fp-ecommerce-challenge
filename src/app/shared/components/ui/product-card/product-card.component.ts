@@ -6,11 +6,12 @@ import { CartStore } from '../../../store/cart.store';
 import { AnalyticsService } from '../../../../core/analytics/analytics.service';
 import { CartProduct } from '../../../models/cart.models';
 import { CartQuantityControlComponent } from '../cart-quantity-control/cart-quantity-control.component';
+import { AddToCartButtonComponent } from '../add-to-cart-button/add-to-cart-button.component';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [RouterLink, HeartButtonComponent, CartQuantityControlComponent],
+  imports: [RouterLink, HeartButtonComponent, CartQuantityControlComponent, AddToCartButtonComponent],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

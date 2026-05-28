@@ -11,6 +11,7 @@ import { HeartButtonComponent } from '../../../shared/components/ui/heart-button
 import { AccordionComponent, AccordionItem } from '../../../shared/components/ui/accordion/accordion.component';
 import { CartStore } from '../../../shared/store/cart.store';
 import { CartQuantityControlComponent } from '../../../shared/components/ui/cart-quantity-control/cart-quantity-control.component';
+import { AddToCartButtonComponent } from '../../../shared/components/ui/add-to-cart-button/add-to-cart-button.component';
 import { AnalyticsService } from '../../../core/analytics/analytics.service';
 import { toAnalyticsItem } from '../../../core/analytics/analytics.utils';
 import { SkeletonComponent } from '../../../shared/components/ui/skeleton/skeleton.component';
@@ -25,6 +26,7 @@ import { CarouselControlsComponent } from '../../../shared/components/ui/carouse
     HeartButtonComponent,
     AccordionComponent,
     CartQuantityControlComponent,
+    AddToCartButtonComponent,
     SkeletonComponent,
     CarouselControlsComponent
   ],
@@ -140,7 +142,7 @@ export class ProductPageComponent {
       this.activeCarouselIndex.set(0);
 
       if (current) {
-        const variant = current.variants.find((item) => item.id === this.selectedVariantId())?.size;
+        const variant = current.variants.find((item) => item.id === defaultVariant)?.size;
         this.analytics.trackViewItem(toAnalyticsItem(current, undefined, variant));
       }
     });
