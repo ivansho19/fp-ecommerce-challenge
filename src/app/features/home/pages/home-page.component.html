@@ -5,13 +5,13 @@
 
   @if (state().status === 'loading') {
     <div
-      class="grid justify-items-center gap-6 sm:grid-cols-2 sm:justify-items-start lg:grid-cols-3 xl:grid-cols-4"
+      class="grid justify-items-center gap-6 px-2 sm:grid-cols-2 sm:justify-items-start sm:px-0 lg:grid-cols-3 xl:grid-cols-4"
     >
       <app-skeleton variant="card" [count]="8" />
     </div>
   } @else {
     <div
-      class="grid justify-items-center gap-4 sm:grid-cols-2 sm:justify-items-start lg:grid-cols-3 xl:grid-cols-4"
+      class="grid justify-items-center gap-4 px-2 sm:grid-cols-2 sm:justify-items-start sm:px-0 lg:grid-cols-3 xl:grid-cols-4"
     >
       @for (item of cards(); track item.id) {
         <app-product-card
