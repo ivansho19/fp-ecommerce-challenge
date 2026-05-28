@@ -178,6 +178,14 @@ export class ProductPageComponent {
       imageUrl: item.images[0]?.url,
       variant
     });
+    const quantity = this.cartStore.quantityFor(item.id);
+    this.analytics.trackAddToCart({
+      item_id: item.id,
+      item_name: item.name,
+      price: item.pricePromo,
+      quantity,
+      item_variant: variant
+    });
   }
 
   quantityFor(item: Product): number {
@@ -194,18 +202,45 @@ export class ProductPageComponent {
       imageUrl: item.images[0]?.url,
       variant
     }, 1);
+    const quantity = this.cartStore.quantityFor(item.id);
+    this.analytics.trackAddToCart({
+      item_id: item.id,
+      item_name: item.name,
+      price: item.pricePromo,
+      quantity,
+      item_variant: variant
+    });
   }
 
   decrement(item: Product): void {
     const current = this.cartStore.quantityFor(item.id);
     if (current <= 1) {
+      this.analytics.trackRemoveFromCart({
+        item_id: item.id,
+        item_name: item.name,
+        price: item.pricePromo,
+        quantity: current
+      });
       this.cartStore.removeFromCart(item.id);
       return;
     }
     this.cartStore.updateQuantity(item.id, current - 1);
+    this.analytics.trackRemoveFromCart({
+      item_id: item.id,
+      item_name: item.name,
+      price: item.pricePromo,
+      quantity: 1
+    });
   }
 
   remove(item: Product): void {
+    const current = this.cartStore.quantityFor(item.id);
+    this.analytics.trackRemoveFromCart({
+      item_id: item.id,
+      item_name: item.name,
+      price: item.pricePromo,
+      quantity: current
+    });
     this.cartStore.removeFromCart(item.id);
   }
 

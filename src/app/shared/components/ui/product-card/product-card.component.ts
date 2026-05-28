@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 
 import { HeartButtonComponent } from '../heart-button/heart-button.component';
 import { CartStore } from '../../../store/cart.store';
+import { AnalyticsService } from '../../../../core/analytics/analytics.service';
 import { CartProduct } from '../../../models/cart.models';
 import { CartQuantityControlComponent } from '../cart-quantity-control/cart-quantity-control.component';
 
@@ -16,6 +17,7 @@ import { CartQuantityControlComponent } from '../cart-quantity-control/cart-quan
 })
 export class ProductCardComponent {
   private readonly cartStore = inject(CartStore);
+  private readonly analytics = inject(AnalyticsService);
 
   @Input({ required: true }) name!: string;
   @Input({ required: true }) subtitle!: string;
@@ -38,6 +40,13 @@ export class ProductCardComponent {
       return;
     }
     this.cartStore.addToCart(this.cartItem);
+    const quantity = this.cartStore.quantityFor(this.cartItem.id);
+    this.analytics.trackAddToCart({
+      item_id: this.cartItem.id,
+      item_name: this.cartItem.name,
+      price: this.cartItem.unitPrice,
+      quantity
+    });
   }
 
   quantity(): number {
@@ -49,6 +58,13 @@ export class ProductCardComponent {
       return;
     }
     this.cartStore.addToCart(this.cartItem, 1);
+    const quantity = this.cartStore.quantityFor(this.cartItem.id);
+    this.analytics.trackAddToCart({
+      item_id: this.cartItem.id,
+      item_name: this.cartItem.name,
+      price: this.cartItem.unitPrice,
+      quantity
+    });
   }
 
   decrement(): void {
@@ -57,16 +73,35 @@ export class ProductCardComponent {
     }
     const current = this.cartStore.quantityFor(this.cartItem.id);
     if (current <= 1) {
+      this.analytics.trackRemoveFromCart({
+        item_id: this.cartItem.id,
+        item_name: this.cartItem.name,
+        price: this.cartItem.unitPrice,
+        quantity: current
+      });
       this.cartStore.removeFromCart(this.cartItem.id);
       return;
     }
     this.cartStore.updateQuantity(this.cartItem.id, current - 1);
+    this.analytics.trackRemoveFromCart({
+      item_id: this.cartItem.id,
+      item_name: this.cartItem.name,
+      price: this.cartItem.unitPrice,
+      quantity: 1
+    });
   }
 
   remove(): void {
     if (!this.cartItem) {
       return;
     }
+    const current = this.cartStore.quantityFor(this.cartItem.id);
+    this.analytics.trackRemoveFromCart({
+      item_id: this.cartItem.id,
+      item_name: this.cartItem.name,
+      price: this.cartItem.unitPrice,
+      quantity: current
+    });
     this.cartStore.removeFromCart(this.cartItem.id);
   }
 }

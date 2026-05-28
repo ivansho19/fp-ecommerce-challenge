@@ -8,9 +8,7 @@ export class CartStore {
 
   readonly items = this.itemsState.asReadonly();
 
-  readonly totalItems = computed(() =>
-    this.itemsState().reduce((total, item) => total + item.quantity, 0)
-  );
+  readonly totalItems = computed(() => this.itemsState().length);
 
   readonly totalPrice = computed(() =>
     this.itemsState().reduce((total, item) => total + item.unitPrice * item.quantity, 0)

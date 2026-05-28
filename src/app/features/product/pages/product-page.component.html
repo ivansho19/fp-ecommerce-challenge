@@ -107,12 +107,12 @@
             }
           </div>
 
-          <div class="flex items-center gap-3">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
             @if (quantityFor(item) > 0) {
               <app-cart-quantity-control
                 [quantity]="quantityFor(item)"
-                [containerClass]="'h-12 w-full'"
-                [buttonClass]="'h-12 w-36'"
+                [containerClass]="'h-12 w-full sm:max-w-[320px]'"
+                [buttonClass]="'h-12 w-12 sm:w-14'"
                 (increment)="increment(item)"
                 (decrement)="decrement(item)"
                 (remove)="remove(item)"
@@ -120,7 +120,7 @@
             } @else {
               <button
                 type="button"
-                class="flex-1 rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white"
+                class="w-full rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white sm:flex-1"
                 (click)="addToCart(item)"
               >
                 Agregar al carrito
@@ -149,7 +149,7 @@
         #crossSellTrack
         class="no-scrollbar flex gap-12 overflow-x-auto px-4 scroll-smooth snap-x snap-mandatory"
       >
-        @for (product of relatedCards(); track product.id) {
+        @for (product of relatedCards(); track product.id + '-' + $index) {
           <div class="min-w-[240px] max-w-[240px] snap-start">
             <app-product-card
               [name]="product.name"

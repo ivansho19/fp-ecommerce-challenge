@@ -1,4 +1,4 @@
-export type AnalyticsEventName = 'view_item' | 'add_to_cart';
+export type AnalyticsEventName = 'view_item' | 'add_to_cart' | 'remove_from_cart';
 
 export interface AnalyticsItem {
   item_id: string;
@@ -24,4 +24,13 @@ export interface AddToCartEvent {
   };
 }
 
-export type AnalyticsEventPayload = ViewItemEvent | AddToCartEvent;
+export interface RemoveFromCartEvent {
+  event: 'remove_from_cart';
+  ecommerce: {
+    currency: string;
+    value: number;
+    items: AnalyticsItem[];
+  };
+}
+
+export type AnalyticsEventPayload = ViewItemEvent | AddToCartEvent | RemoveFromCartEvent;
