@@ -10,8 +10,7 @@ Incluye Product Listing Page, Product Detail Page, carrito local, analytics desa
 
 ## Demo
 
-- Deploy: **TODO**
-- Screenshots: **TODO**
+- Deploy: (https://challenge-frontend-fp.netlify.app/)
 
 ## Tecnologias utilizadas
 
