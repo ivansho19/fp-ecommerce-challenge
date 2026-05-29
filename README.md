@@ -12,6 +12,14 @@ Incluye Product Listing Page, Product Detail Page, carrito local, analytics desa
 
 - Deploy: (https://challenge-frontend-fp.netlify.app/)
 
+## Screenshots
+
+![Home Desktop](src/assets/img/image.png)
+![PDP Desktop](src/assets/img/image-1.png)
+![PDP DESKTOP + CARRITO](src/assets/img/image-2.png)
+![PDP RESPONSIVE 1](src/assets/img/image-3.png)
+![PDP RESPONSIVE 2](src/assets/img/image-4.png)
+
 ## Tecnologias utilizadas
 
 | Tecnologia | Proposito |
@@ -158,11 +166,11 @@ Respuesta : Separaría la solución en una base funcional compartida y una capa 
 
 **Si esta pagina presenta problemas de LCP en produccion, como lo abordarias?**
 
-Respuesta : Mediria LCP por ruta espeficica he identificaria el elemento LCP (imagen o card) tambien buscaria optimizar el tamaño y formato (AVIF/WebP) agregando el preloading selectivo y revisaria SSR/streaming. 
+Respuesta : Mediría el LCP por ruta específica e identificaría el elemento crítico responsable del render principal, tambien buscaria optimizar el tamaño y formato (AVIF/WebP) agregando el preloading selectivo y revisaria SSR/streaming. 
 
 **Como evitaria que eventos de Analytics se disparen multiples veces en una SPA?**
 
-Respuesta : Centralizando el trackeo en un servicio por clave (evento + item_id) y disparando los eventos en puntos independientes tales como (routing/resolvers o effects controlados) evitando suscripciones duplicadas.
+Respuesta : Centralizaría los eventos en un AnalyticsService desacoplado, controlando los disparos mediante claves únicas por evento y producto. Además, utilizaría puntos controlados de ejecución (routing, effects o acciones explícitas de usuario) para evitar duplicados comunes en aplicaciones SPA.
 
 **Que consideraciones SEO tendrias en cuenta para esta pagina en un entorno real?**
 
