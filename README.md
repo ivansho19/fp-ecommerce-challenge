@@ -133,14 +133,6 @@ src/
 - Reorganizacion de contenido en header y cards.
 
 
-## Core Web Vitals
-
-| Metrica | Objetivo | Estado |
-| --- | --- | --- |
-| LCP | < 2.5s | TODO |
-| INP | < 200ms | TODO |
-| CLS | < 0.1 | TODO |
-
 ## Deploy
 
 - Build SSR: `npm run build`
