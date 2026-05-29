@@ -22,14 +22,14 @@
       "variants": [
         {
           "id": "var_001",
-          "sku": "AUR-HEAD-BLK",
+          "sku": "123456",
           "color": "Black",
           "size": "Standard",
           "stock": 24
         },
         {
           "id": "var_002",
-          "sku": "AUR-HEAD-WHT",
+          "sku": "123457",
           "color": "White",
           "size": "Standard",
           "stock": 12
@@ -60,14 +60,14 @@
       "variants": [
         {
           "id": "var_003",
-          "sku": "PAN-500-20",
+          "sku": "123458",
           "color": "White",
           "size": "20 tablets",
           "stock": 18
         },
         {
           "id": "var_004",
-          "sku": "PAN-500-10",
+          "sku": "123459",
           "color": "White",
           "size": "10 tablets",
           "stock": 9
@@ -98,7 +98,7 @@
       "variants": [
         {
           "id": "var_005",
-          "sku": "PRW-CHO-500",
+          "sku": "123460",
           "color": "Chocolate",
           "size": "500g",
           "stock": 30
@@ -129,14 +129,14 @@
       "variants": [
         {
           "id": "var_006",
-          "sku": "PAN-ANT-NF-20",
+          "sku": "123461",
           "color": "White",
           "size": "20 tablets",
           "stock": 15
         },
         {
           "id": "var_007",
-          "sku": "PAN-ANT-NF-10",
+          "sku": "123462",
           "color": "White",
           "size": "10 tablets",
           "stock": 10

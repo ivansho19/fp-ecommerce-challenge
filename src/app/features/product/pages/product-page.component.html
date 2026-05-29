@@ -41,17 +41,22 @@
         <div class="rounded-2xl bg-white p-6 shadow-sm space-y-4">
           <div class="space-y-1">
             <p class="text-xs uppercase text-brand-primary">{{ item.unitLabel }}</p>
-            <h1 class="text-2xl font-semibold text-slate-900">{{ item.name }}</h1>
+            <div class="flex items-start justify-between gap-4">
+              <h1 class="text-2xl font-semibold text-slate-900">{{ item.name }}</h1>
+              <span class="text-xs font-semibold uppercase text-slate-400">
+                SKU {{ selectedSku(item) }}
+              </span>
+            </div>
           </div>
           <div class="space-y-2 text-sm text-slate-600">
             <div class="flex items-center justify-between">
               <span>Precio regular</span>
-              <span class="line-through">{{ (item.price * 1.2) | currency:'USD':'symbol' }}</span>
+              <span class="line-through">{{ (item.price * 1.2) | currency:'S/.':'symbol-narrow' }}</span>
             </div>
             <div class="flex items-center justify-between">
               <span>Precio promocional</span>
               <span class="text-brand-primary font-semibold">
-                {{ item.price | currency:'USD':'symbol' }}
+                {{ item.price | currency:'S/.':'symbol-narrow' }}
               </span>
             </div>
             <div class="flex items-center justify-between">

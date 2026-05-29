@@ -156,6 +156,11 @@ export class ProductPageComponent {
     this.activeImageIndex.set(index);
   }
 
+  selectedSku(item: Product): string {
+    const selectedId = this.selectedVariantId() ?? item.variants[0]?.id;
+    return item.variants.find((variant) => variant.id === selectedId)?.sku ?? '';
+  }
+
   buildAccordionItems(item: Product): AccordionItem[] {
     return [
       { title: 'Descripcion larga', content: item.description },
