@@ -37,7 +37,11 @@ describe('ProductPageComponent', () => {
 
   beforeEach(() => {
     productService = jasmine.createSpyObj<ProductDataService>('ProductDataService', ['getProducts', 'getMostSearched']);
-    analytics = jasmine.createSpyObj<AnalyticsService>('AnalyticsService', ['trackViewItem']);
+    analytics = jasmine.createSpyObj<AnalyticsService>('AnalyticsService', [
+      'trackViewItem',
+      'trackAddToCart',
+      'trackRemoveFromCart'
+    ]);
     cartStore = jasmine.createSpyObj<CartStore>('CartStore', [
       'addToCart',
       'removeFromCart',
